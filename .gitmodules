@@ -1,0 +1,3 @@
+[submodule "wacom-device-kit-linux"]
+	path = wacom-device-kit-linux
+	url = https://github.com/Wacom-Developer/wacom-device-kit-linux
