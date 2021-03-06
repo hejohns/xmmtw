@@ -29,3 +29,5 @@ executable xmmtw
   ghc-options:         -threaded
                        -with-rtsopts=-N
                        -O3
+                       -XOverloadedLabels
+                       -XDataKinds
