@@ -10,12 +10,14 @@
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE FunctionalDependencies #-}
 
-module Records.Max (Records.Min) where
+module Record.Max (module Record.Min) where
 
-import Records.Min
+import Record.Min
+import GHC.OverloadedLabels (IsLabel(..))
+import GHC.TypeLits (Symbol)
 
-instance HasField' l a b => IsLabel l (a -> b) where
+instance HasField l a b => IsLabel l (a -> b) where
     fromLabel = getField (Label :: Label l)
 
-instance HasField' l a b => IsLabel l (a -> b -> a) where
+instance HasField l a b => IsLabel l (a -> b -> a) where
     fromLabel = setField (Label :: Label l)
