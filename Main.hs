@@ -13,8 +13,9 @@ module Main (main) where
 
 import qualified GI.Gtk as Gtk
 import Data.GI.Base
-import qualified GI.Cairo as Cairo
-import qualified GI.Cairo.Render as Cairo.Render
+import qualified GI.Cairo
+import qualified GI.Cairo.Render as Cairo
+import GI.Cairo.Render.Connector (renderWithContext)
 import Record.Min
 
 activate :: Gtk.Application -> IO ()
@@ -38,10 +39,11 @@ activate app = do
     id #append box status
     id #show win
     where
-    draw_func _ _ _ _ = putStrLn "test"
+    draw_func drawingArea cr width height = do
+        Cairo.setSourceSurface cr 0 0
     drawing x y = do
         --Cairo.imageSurfaceCreate
-        r <- new Cairo.Rectangle [#height := 50, #width := 50]
+        --r <- new Cairo.Rectangle [#height := 50, #width := 50]
         --Cairo.Render.fill
         return () :: IO ()
 

@@ -24,6 +24,7 @@ executable xmmtw
                        gi-gtk ==4.0.3,
                        gi-cairo,
                        gi-cairo-render,
+                       gi-cairo-connector,
                        gi-gio,
                        haskell-gi-base
   -- hs-source-dirs:
