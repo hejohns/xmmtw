@@ -16,8 +16,8 @@ import Record.Min
 import GHC.OverloadedLabels (IsLabel(..))
 import GHC.TypeLits (Symbol)
 
-instance HasField l a b => IsLabel l (a -> b) where
+instance {-# OVERLAPPABLE #-} HasField l a b => IsLabel l (a -> b) where
     fromLabel = getField (Label :: Label l)
 
-instance HasField l a b => IsLabel l (a -> b -> a) where
+instance {-# OVERLAPPABLE #-} HasField l a b => IsLabel l (a -> b -> a) where
     fromLabel = setField (Label :: Label l)
